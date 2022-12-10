@@ -6,6 +6,7 @@ import com.eliezergarbin.gameawards.service.GameService;
 import com.eliezergarbin.gameawards.service.exception.BusinessException;
 import com.eliezergarbin.gameawards.service.exception.NoContentException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class GameServiceImpl  implements GameService {
 
     @Override
     public List<Game> findAll() {
-        return repository.findAll();
+        return repository.findAll(Sort.by(Sort.Direction.DESC, "votes"));
     }
 
     @Override
@@ -51,5 +52,13 @@ public class GameServiceImpl  implements GameService {
     public void delete(Long id) {
         Game gameDb = findById(id);
         repository.delete(gameDb);
+    }
+
+    @Override
+    public void vote(Long id) {
+        Game gameDb = findById(id);
+        gameDb.setVotes(gameDb.getVotes() +1);
+
+        update(id, gameDb);
     }
 }

@@ -1,6 +1,6 @@
-package com.eliezergarbin.gameawards.controller;
+package com.eliezergarbin.gameawards.controller.games;
 
-import com.eliezergarbin.gameawards.controller.games.BaseRestController;
+import com.eliezergarbin.gameawards.controller.BaseRestController;
 import com.eliezergarbin.gameawards.domain.model.Game;
 import com.eliezergarbin.gameawards.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class GameController extends BaseRestController {
+public class GameRestController extends BaseRestController {
 
     @Autowired
     private GameService businessLayer;
@@ -42,6 +42,12 @@ public class GameController extends BaseRestController {
     @DeleteMapping("games/{id}")
     public ResponseEntity<Game> delete(@PathVariable Long id) {
         businessLayer.delete(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @PatchMapping("games/{id}/vote")
+    public ResponseEntity<Game> update(@PathVariable Long id) {
+        businessLayer.vote(id);
         return ResponseEntity.ok().build();
     }
 

@@ -1,4 +1,4 @@
-package com.eliezergarbin.gameawards.controller.games;
+package com.eliezergarbin.gameawards.controller;
 
 import com.eliezergarbin.gameawards.controller.ApiErrorDTO;
 import com.eliezergarbin.gameawards.service.exception.BusinessException;
