@@ -29,6 +29,7 @@ public class GameController {
     public ResponseEntity<Game> insert(@RequestBody Game game) {
         businessLayer.insert(game);
         return ResponseEntity.ok(game);
+
     }
 
     @PutMapping("games/{id}")
