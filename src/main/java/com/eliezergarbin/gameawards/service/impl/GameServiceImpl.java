@@ -6,11 +6,13 @@ import com.eliezergarbin.gameawards.service.GameService;
 import com.eliezergarbin.gameawards.service.exception.BusinessException;
 import com.eliezergarbin.gameawards.service.exception.NoContentException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+@Service
 public class GameServiceImpl  implements GameService {
 
     @Autowired
