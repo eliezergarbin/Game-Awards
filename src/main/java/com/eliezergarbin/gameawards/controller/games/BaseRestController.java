@@ -1,5 +1,6 @@
 package com.eliezergarbin.gameawards.controller.games;
 
+import com.eliezergarbin.gameawards.controller.ApiErrorDTO;
 import com.eliezergarbin.gameawards.service.exception.BusinessException;
 import com.eliezergarbin.gameawards.service.exception.NoContentException;
 import org.springframework.http.ResponseEntity;
@@ -7,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/api")
-public class BaseRestController {
+public abstract class BaseRestController {
 
     @ExceptionHandler(NoContentException.class)
     public ResponseEntity<Void> handlerNoContent(NoContentException exception) {
@@ -15,8 +16,15 @@ public class BaseRestController {
     }
 
     @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<Void> handlerBusinessException(BusinessException exception) {
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<ApiErrorDTO> handlerBusinessException(BusinessException exception) {
+        ApiErrorDTO error = new ApiErrorDTO(exception.getMessage());
+        return ResponseEntity.badRequest().body(error);
     }
 
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<ApiErrorDTO> handlerUnexpectedException(Throwable exception) {
+        exception.printStackTrace();
+        ApiErrorDTO error = new ApiErrorDTO("Ops, ocorreu um erro inesperado");
+        return ResponseEntity.internalServerError().body(error);
+    }
 }

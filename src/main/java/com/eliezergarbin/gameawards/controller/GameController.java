@@ -1,5 +1,6 @@
 package com.eliezergarbin.gameawards.controller;
 
+import com.eliezergarbin.gameawards.controller.games.BaseRestController;
 import com.eliezergarbin.gameawards.domain.model.Game;
 import com.eliezergarbin.gameawards.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class GameController {
+public class GameController extends BaseRestController {
 
     @Autowired
     private GameService businessLayer;
