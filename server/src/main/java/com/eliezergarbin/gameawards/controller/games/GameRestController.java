@@ -4,11 +4,13 @@ import com.eliezergarbin.gameawards.controller.BaseRestController;
 import com.eliezergarbin.gameawards.domain.model.Game;
 import com.eliezergarbin.gameawards.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class GameRestController extends BaseRestController {
 
@@ -29,8 +31,7 @@ public class GameRestController extends BaseRestController {
     @PostMapping("games")
     public ResponseEntity<Game> insert(@RequestBody Game game) {
         businessLayer.insert(game);
-        return ResponseEntity.ok(game);
-
+        return ResponseEntity.status(HttpStatus.CREATED).body(game);
     }
 
     @PutMapping("games/{id}")
