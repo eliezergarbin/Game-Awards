@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, Button, Alert } from "react-native";
 
+import { clientSendingVotes} from '../../api/api'
+
 const sendingVote = (id:number) => {
     Alert.alert(    
     "Vote sent",
