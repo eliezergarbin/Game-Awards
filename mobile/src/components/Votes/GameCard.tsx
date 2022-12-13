@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, Image, Button, Alert } from "react-native";
 
 import { clientSendingVotes} from '../../api/api'
+import { gameInterface } from "../../interfaces/gameInterface";
 
 const sendingVote = (id:number) => {
     Alert.alert(    
@@ -13,16 +14,16 @@ const sendingVote = (id:number) => {
   );
 }
 
-export function GameCard() {
+export function GameCard(props: gameInterface | any){ 
   return (
     <View style={styles.Cardcontainer}>
       <View>
-        <Image source={{ uri: "" }} style={styles.card} />
+        <Image source={{ uri: props.cover }} style={styles.card} />
       </View>
       <View style={styles.infoContainer}>
-        <Text style={styles.label}>PACMAN</Text>
+        <Text style={styles.label}>{props.name}</Text>
         <Button 
-                   onPress={()=>sendingVote}
+                   onPress={()=>sendingVote(props.id)}
             title='vote'
             color='#9AC33C'
         />
