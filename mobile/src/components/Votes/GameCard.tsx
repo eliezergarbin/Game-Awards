@@ -1,31 +1,31 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, Button, Alert } from "react-native";
 
-import { clientSendingVotes} from '../../api/api'
+import { clientSendingVotes } from "../../api/api";
 import { gameInterface } from "../../interfaces/gameInterface";
 
-const sendingVote = (id:number) => {
-    Alert.alert(    
-    "Vote sent",
-    "thanks for helping decide game of the year",
-    [
-      { text: "OK", onPress: () => clientSendingVotes(id) }
-    ]
-  );
-}
+const sendingVote = (id: number) => {
+  Alert.alert("Vote sent", "thanks for helping decide game of the year", [
+    { text: "OK", onPress: () => clientSendingVotes(id) },
+  ]);
+};
 
-export function GameCard(props: gameInterface | any){ 
+export function GameCard(props: gameInterface | any) {
   return (
-    <View style={styles.Cardcontainer}>
+    <View style={styles.Cardcontainer} key={props.id}>
       <View>
         <Image source={{ uri: props.cover }} style={styles.card} />
       </View>
+
       <View style={styles.infoContainer}>
         <Text style={styles.label}>{props.name}</Text>
-        <Button 
-                   onPress={()=>sendingVote(props.id)}
-            title='vote'
-            color='#9AC33C'
+        <Button
+          onPress={() => {
+            sendingVote(props.id);
+          }}
+          title="Vote"
+          color="#9AC33C"
+          accessibilityLabel="Learn more about this purple button"
         />
       </View>
     </View>
