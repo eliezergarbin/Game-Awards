@@ -8,7 +8,7 @@
 🚧
 🚧
 The game awards
-
+awards ceremony honoring achievements in the video game industry
 react-native e java
 acessar h2 (url)
 
