@@ -1,8 +1,5 @@
 # Game-Awards
 
-react navigation
-react hooks
-expo
 
 <h4 align="center"> 
 	 Project GameAwards
