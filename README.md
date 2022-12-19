@@ -1,20 +1,5 @@
 # Game-Awards
 
-🚧
-🚧
-🚧
-🚧
-🚧
-🚧
-🚧
-The game awards
-awards ceremony honoring achievements in the video game industry
-react-native e java
-acessar h2 (url)
-
-http://localhost:8080/swagger-ui/index.html#/
-acessar doc swegger(url)
-
 react navigation
 react hooks
 expo
@@ -55,6 +40,15 @@ expo
 
 
 ## Project
+The application simulates the GOTY (Game of the Year) event of The Game Awards, where an annual award ceremony honors achievements in the video game industry.
+Instead of the original where winners are determined by a mixed vote between the jury (which equals 90% of the final results) and the public vote (equivalent to 10%), the application only determines the winner with the user's popular votes.
+
+
+#### Server 
+Using Java 17 and Spring Boot 3 with Spring Data to create RESTful and JPA APIs with the H2 database because of its ease of accessing the database interface through the browser.
+
+#### Mobile
+In the mobile part, Typescprit was used with the React Native framework + React Hooks and Expo (a tool that brings a series of pre-configured components and an easy way to test the application) were consumed. React-navigation was also used to facilitate navigation in the application.
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/59988262/207622474-e7ce7abb-7132-46ed-bd44-21ca752ed5cc.gif"  width="350" alt="GIF GameAwards" title="Example" />
