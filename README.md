@@ -47,11 +47,6 @@ Using Java 17 and Spring Boot 3 with Spring Data to create RESTful and JPA APIs 
 #### Mobile
 In the mobile part, Typescprit was used with the React Native framework + React Hooks and Expo (a tool that brings a series of pre-configured components and an easy way to test the application) were consumed. React-navigation was also used to facilitate navigation in the application.
 
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/59988262/207622474-e7ce7abb-7132-46ed-bd44-21ca752ed5cc.gif"  width="350" alt="GIF GameAwards" title="Example" />
-
-</p>
-
 
 ## Technologies
 This project was developed with the following technologies:
